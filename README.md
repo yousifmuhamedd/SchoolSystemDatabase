@@ -48,5 +48,39 @@ INNER JOIN
 WHERE
 	fl.ClientID = 3;
 ```
-![image](https://github.com/user-attachments/assets/e39f1c11-32ac-4854-adbc-a8fb3a2a0dea)
+![image](https://github.com/user-attachments/assets/d3dd3d21-2963-4099-9aa9-780bc266939c)
+```
+SELECT
+	CourseName, DepartmentName, RoomNumber, CreditHours, NumberOfStudents,
+	CASE 
+        WHEN s.Fall = 1 THEN 'x'
+        ELSE ''
+    END AS Fall,
+	CASE 
+        WHEN s.[Winter/Spring] = 1 THEN 'x'
+        ELSE ''
+    END AS 'Winter/Spring',
+	CASE 
+        WHEN s.FullSummer = 1 THEN 'x'
+        ELSE ''
+    END AS 'Full Summer',
+	CONCAT(fl.FirstName,' ',fl.LastName) AS 'Teacher Name'
+FROM
+	CourseCatalogue cc
+INNER JOIN
+	CourseRegistration cr on cc.CourseID = cr.CourseID
+INNER JOIN
+	Semesters s on s.CourseID = cr.CourseID
+INNER JOIN
+	CourseSchedule cs on cc.CourseID = cs.CourseID
+INNER JOIN
+	FacultyCourses fc on cc.CourseID = fc.CourseID
+INNER JOIN
+	FacultyList fl on fc.FacultyID = fl.FacultyID
+WHERE
+	cc.ClientID = 3 AND cs.[Current] = 1;
+```
+![image](https://github.com/user-attachments/assets/3f5add1a-d9d3-470d-b739-64d60e24fe52)
+
+
 
