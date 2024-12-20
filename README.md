@@ -1,8 +1,8 @@
 # SchoolSystemDatabase
 A complete database design for managing school operations, including student records, faculty schedules, courses, grades, and multi-school support. Built with scalability, efficiency, and accuracy in mind.
-###ER Diagram Overview
+### ER Diagram Overview
 ![image](https://github.com/user-attachments/assets/0c4b4957-e667-4895-af11-a736399f2d76)
-###Key Use Cases:
+### Key Use Cases:
 - Student Management:
 Store and manage student personal details, academic records, and GPA calculations.
 - Course and Enrollment Management:
