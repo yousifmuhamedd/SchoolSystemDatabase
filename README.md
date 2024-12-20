@@ -1,5 +1,5 @@
 # SchoolSystemDatabase
-A complete database design for managing school operations, including student records, faculty schedules, courses, grades, and multi-school support. Built with scalability, efficiency, and accuracy in mind.
+A complete database design in SSMS for managing school operations, including student records, faculty schedules, courses, grades, and multi-school support. Built with scalability, efficiency, and accuracy in mind.
 ### Key Use Cases:
 - Student Management:
 Store and manage student personal details, academic records, and GPA calculations.
@@ -17,3 +17,33 @@ Generate transcripts, GPA reports, and department performance summaries.
 - Faculty Schedules: Track which courses faculty teach and when.
 ### ER Diagram Overview
 ![image](https://github.com/user-attachments/assets/0c4b4957-e667-4895-af11-a736399f2d76)
+``` 
+SELECT
+	TitleName, CONCAT(FirstName,' ', LastName) AS 'Faculty Name', Office, CourseName, RoomNumber,
+	CASE 
+        WHEN s.Fall = 1 THEN 'x'
+        ELSE ''
+    END AS Fall,
+	CASE 
+        WHEN s.[Winter/Spring] = 1 THEN 'x'
+        ELSE ''
+    END AS 'Winter/Spring',
+	CASE 
+        WHEN s.FullSummer = 1 THEN 'x'
+        ELSE ''
+    END AS 'Full Summer'
+FROM	
+	FacultyList fl
+INNER JOIN
+	FacultyCourses fc on fl.FacultyID = fc.FacultyID
+INNER JOIN
+	CourseCatalogue cc on fc.CourseID = cc.CourseID
+INNER JOIN
+	Semesters s on s.CourseID = cc.CourseID
+INNER JOIN
+	CourseSchedule cs on cc.CourseID = cs.CourseID
+INNER JOIN
+	CourseRegistration cr on cc.CourseID = cr.CourseID
+WHERE
+	fl.ClientID = 3;
+```
