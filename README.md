@@ -80,7 +80,8 @@ INNER JOIN
 WHERE
 	cc.ClientID = 3 AND cs.[Current] = 1;
 ```
-![image](https://github.com/user-attachments/assets/3f5add1a-d9d3-470d-b739-64d60e24fe52)
+![image](https://github.com/user-attachments/assets/88707178-3de6-449b-8438-ae58a8a934c4)
+
 
 
 
