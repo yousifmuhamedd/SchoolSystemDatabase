@@ -17,6 +17,7 @@ Generate transcripts, GPA reports, and department performance summaries.
 - Faculty Schedules: Track which courses faculty teach and when.
 ### ER Diagram Overview
 ![image](https://github.com/user-attachments/assets/0c4b4957-e667-4895-af11-a736399f2d76)
+### Queries run and results
 ``` 
 SELECT
 	TitleName, CONCAT(FirstName,' ', LastName) AS 'Faculty Name', Office, CourseName, RoomNumber,
@@ -47,3 +48,5 @@ INNER JOIN
 WHERE
 	fl.ClientID = 3;
 ```
+![image](https://github.com/user-attachments/assets/e39f1c11-32ac-4854-adbc-a8fb3a2a0dea)
+
